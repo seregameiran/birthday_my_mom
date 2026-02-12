@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 10 причин</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(145deg, #fff5f0, #fbe9e0);
+        }
+        
+        .top-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #b36b6b;
+            margin-bottom: 15px;
+        }
+        
+        .sub {
+            font-size: 1.3rem;
+            color: #b28b8b;
+        }
+        
+        .reasons-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .reason-card {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px rgba(179, 107, 107, 0.1);
+            border: 1px solid #f1d5d5;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            border-left: 8px solid #c48b8b;
+        }
+        
+        .reason-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 30px rgba(179, 107, 107, 0.15);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .reason-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #c48b8b;
+            margin-bottom: 15px;
+        }
+        
+        .reason-text {
+            font-size: 1.2rem;
+            color: #5a3a3a;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: block;
+            margin: 0 auto;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .reason-card { padding: 25px; }
+            .reason-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-title">
+            <h1>💝 10 ПРИЧИН</h1>
+            <div class="sub">Почему ты — лучшая мама на свете</div>
+        </div>
+        
+        <div class="reasons-grid">
+            
+            <div class="reason-card" style="animation-delay: 0.1s;">
+                <div class="reason-number">01</div>
+                <div class="reason-text">
+                    Ты прощала мне всё.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.2s;">
+                <div class="reason-number">02</div>
+                <div class="reason-text">
+                    Владивосток — Томск, но ты всегда рядом.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.3s;">
+                <div class="reason-number">03</div>
+                <div class="reason-text">
+                    Твои руки. Я помню их с детства — нежные, тёплые, родные.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.4s;">
+                <div class="reason-number">04</div>
+                <div class="reason-text">
+                    Ты не спала ночами, когда я болел. А потом вставала в 6 утра на работу.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.5s;">
+                <div class="reason-number">05</div>
+                <div class="reason-text">
+                    Твои еда... Ни в одном ресторане мира нет вкуснее.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.6s;">
+                <div class="reason-number">06</div>
+                <div class="reason-text">
+                    Ты всегда меня поддерживала.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.7s;">
+                <div class="reason-number">07</div>
+                <div class="reason-text">
+                    Ты всегда в меня верила.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.8s;">
+                <div class="reason-number">08</div>
+                <div class="reason-text">
+                    Ты отдавала последнее. Чтобы у меня было лучше, чем у других.
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 0.9s;">
+                <div class="reason-number">09</div>
+                <div class="reason-text">
+                    Твоя красота. Несмотря на бессонные ночи со мной и Донатом )
+                </div>
+            </div>
+            
+            <div class="reason-card" style="animation-delay: 1s;">
+                <div class="reason-number">10</div>
+                <div class="reason-text">
+                    Ты — моя мама. Этого достаточно. ❤️
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn" id="nextBtn">
+            📩 ДАЛЬШЕ — ПИСЬМО
+        </button>
+    </div>
+    
+    <script>
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                window.location.href = '3-letter.html';
+            }, 300);
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

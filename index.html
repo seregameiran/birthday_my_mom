@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💝 Мама, это для тебя</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(145deg, #fff0e7, #fbe9e0);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .welcome {
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #b36b6b;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .sub {
+            font-size: 1.3rem;
+            color: #b28b8b;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .input-wrapper {
+            margin: 40px 0;
+        }
+        
+        input {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1.2rem;
+            border: 3px solid #f1d5d5;
+            border-radius: 60px;
+            outline: none;
+            background: white;
+            text-align: center;
+            color: #5a3a3a;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            border-color: #c48b8b;
+            box-shadow: 0 0 0 5px rgba(196, 139, 139, 0.1);
+        }
+        
+        .btn {
+            width: 100%;
+            font-size: 1.3rem;
+            padding: 18px;
+            margin-top: 20px;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .hint {
+            margin-top: 30px;
+            color: #b28b8b;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .shake {
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+        }
+        
+        .flower {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome">
+            <div class="flower">🌷</div>
+            
+            <h1>Мама, этот сайт</h1>
+            <h1>только для тебя</h1>
+            
+            <div class="sub">Введи своё имя, чтобы войти</div>
+            
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="nameInput" 
+                    placeholder="Например, Света..."
+                    autocomplete="off"
+                    autofocus
+                >
+            </div>
+            
+            <button class="btn" id="enterBtn" disabled>💐 ВОЙТИ 💐</button>
+            
+            <div class="hint" id="hintMessage">
+                ❤️ Я тебя сразу узнаю...
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // =============== ВХОД ДЛЯ МАМЫ ===============
+        
+        // ⚠️ ВСТАВЬ ИМЯ СВОЕЙ МАМЫ !!!
+        const MOM_NAME = "Света";
+        
+        const nameInput = document.getElementById('nameInput');
+        const enterBtn = document.getElementById('enterBtn');
+        const hint = document.getElementById('hintMessage');
+        
+        // Активация кнопки при вводе
+        nameInput.addEventListener('input', function() {
+            enterBtn.disabled = this.value.trim() === '';
+        });
+        
+        // Нажатие Enter
+        nameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !enterBtn.disabled) {
+                enterBtn.click();
+            }
+        });
+        
+        // Проверка имени
+        enterBtn.addEventListener('click', function() {
+            const enteredName = nameInput.value.trim();
+            
+            if (enteredName.toLowerCase() === MOM_NAME.toLowerCase()) {
+                // ✅ Всё верно — мама вошла!
+                localStorage.setItem('momName', enteredName);
+                
+                hint.innerHTML = '❤️ Входи, мамочка! ❤️';
+                hint.style.color = '#b36b6b';
+                
+                enterBtn.textContent = '💐 СКОРО ОТКРОЕТСЯ... 💐';
+                
+                setTimeout(() => {
+                    window.location.href = '1-card.html';
+                }, 1000);
+                
+            } else {
+                // ❌ Неправильное имя — пасхалка
+                nameInput.classList.add('shake');
+                setTimeout(() => {
+                    nameInput.classList.remove('shake');
+                }, 500);
+                
+                hint.innerHTML = '🌷 Нет, ты не мама. Но мама у тебя точно замечательная! ❤️';
+                hint.style.color = '#b95b5b';
+                
+                nameInput.style.borderColor = '#e6b3b3';
+                nameInput.style.backgroundColor = '#fff5f5';
+            }
+        });
+        
+        // Сброс подсказки
+        nameInput.addEventListener('focus', function() {
+            this.style.borderColor = '#f1d5d5';
+            this.style.backgroundColor = 'white';
+            hint.innerHTML = '❤️ Я тебя сразу узнаю...';
+            hint.style.color = '#b28b8b';
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

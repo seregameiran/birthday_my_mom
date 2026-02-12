@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 С днём рождения, мама!</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(145deg, #fff9f5, #ffe4d6);
+        }
+        
+        .card {
+            text-align: center;
+        }
+        
+        .flowers-top {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: #b36b6b;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .mom-name {
+            font-size: 3.5rem;
+            color: #c48b8b;
+            font-weight: 800;
+            border-bottom: 4px solid #e6b3b3;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin: 20px 0;
+        }
+        
+        .greeting {
+            font-size: 1.6rem;
+            color: #9e7a7a;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        
+        .warm-words {
+            background: rgba(255, 235, 225, 0.7);
+            border-radius: 60px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px dashed #d9b0b0;
+        }
+        
+        .warm-words p {
+            font-size: 1.3rem;
+            color: #6b4f4f;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        
+        .flowers-bottom {
+            font-size: 2rem;
+            margin: 30px 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn {
+            margin-top: 20px;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .mom-name { font-size: 2.5rem; }
+            .greeting { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="flowers-top">
+                🌸 🌺 🌹 🌷 💐
+            </div>
+            
+            <h1>С ДНЁМ РОЖДЕНИЯ,</h1>
+            <div class="mom-name insert-name">МАМА</div>
+            
+            <div class="greeting">
+                Самая родная ❤️
+            </div>
+            
+            <div class="warm-words">
+                <p>💝 Спасибо, что ты у меня есть</p>
+                <p>🌷 Спасибо за твоё тепло</p>
+                <p>🏠 Спасибо за дом, который всегда ждёт</p>
+            </div>
+            
+            <div class="flowers-bottom">
+                🌷 🌸 🌺 🌹 💐
+            </div>
+            
+            <button class="btn" id="nextBtn">
+                💐 ДАЛЬШЕ 💐
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                window.location.href = '2-top10.html';
+            }, 300);
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

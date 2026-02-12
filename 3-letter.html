@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Письмо маме</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: #fcf3e9;
+            background-image: radial-gradient(#e6ccb3 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .container {
+            background: rgba(255, 248, 240, 0.95);
+            border: 2px solid #e6ccb3;
+            box-shadow: 0 20px 40px rgba(130, 70, 50, 0.1);
+        }
+        
+        .letter {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            padding: 20px;
+        }
+        
+        .date {
+            text-align: right;
+            color: #9e7a7a;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .letter-content {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #5a3a3a;
+            white-space: pre-wrap;
+            min-height: 500px;
+            border-bottom: 2px dashed #e6ccb3;
+            padding-bottom: 40px;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.6rem;
+            background-color: #b36b6b;
+            margin-left: 3px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .signature {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            color: #b36b6b;
+            text-align: right;
+            font-style: italic;
+        }
+        
+        .btn {
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .letter-content { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="letter">
+            <div class="date">
+                14 февраля 2026<br>
+                Владивосток
+            </div>
+            
+            <div id="letterContent" class="letter-content">
+                <!-- СЮДА БУДЕТ ПЕЧАТАТЬСЯ ТЕКСТ -->
+            </div>
+            
+            <div class="signature">
+                Твой Серёжа ❤️
+            </div>
+            
+            <button class="btn" id="nextBtn" style="display: none;">
+                🎂 ДАЛЬШЕ 🎂
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // =============== ЭФФЕКТ ПИШУЩЕЙ МАШИНКИ ===============
+        
+        // ТВОЁ ПИСЬМО, СЕРЁЖА!
+        const letterText = `Дорогая мама!
+
+Пишу тебе это письмо из Владивостока...
+
+Спасибо за то, что ты всегда рядом со мной,
+даже когда между нами 9000 километров.
+
+За бессонные ночи,
+за твои нежные руки,
+которые до сих пор помнят мои пелёнки.
+
+Ты — мой первый дом,
+моя первая любовь,
+мой первый человек.
+
+Я очень тебя люблю, мама.
+Прости, что редко это говорю.
+
+Твой Серёжа ❤️`;
+        
+        const letterElement = document.getElementById('letterContent');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let i = 0;
+        let isTyping = true;
+        
+        function typeWriter() {
+            if (i < letterText.length) {
+                letterElement.innerHTML = letterText.substring(0, i + 1) + '<span class="cursor"></span>';
+                i++;
+                setTimeout(typeWriter, 50); // Скорость печати
+            } else {
+                // Убираем курсор в конце
+                letterElement.innerHTML = letterText;
+                // Показываем кнопку
+                nextBtn.style.display = 'block';
+                nextBtn.style.opacity = '0';
+                nextBtn.style.animation = 'fadeIn 0.5s ease forwards';
+                isTyping = false;
+            }
+        }
+        
+        // Добавляем анимацию появления
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Запускаем печать
+        setTimeout(typeWriter, 500);
+        
+        // Кнопка "ДАЛЬШЕ"
+        nextBtn.addEventListener('click', function() {
+            window.location.href = '4-final.html';
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
